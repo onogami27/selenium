@@ -21,8 +21,19 @@ options.add_argument('--start-maximized');
 
 
 #クロームドライバーをset
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=options)
+
+driver.implicitly_wait(10)
+
 #サイトのURLを指定
-driver.get("https://aiacademy.jp/media/?p=346")
-driver.title
-driver.quit()
+driver.get("")
+#場所を指定（IDタグで指定）
+elem_search = driver.find_element_by_id("")
+#指定した場所に.send_keysで文字を入力
+elem_search.send_keys("")
+elem_button = driver.find_element_by_id("")
+elem_button.click()
+time.sleep(2)
+driver.get("")
+na = driver.find_element_by_class_name("")
+na.click()
