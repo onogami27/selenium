@@ -1,5 +1,5 @@
 import sqlite3
-from sqlite3.dbapi2 import Cursor
+
 import PySimpleGUI as sg
 import os
 
@@ -19,10 +19,12 @@ def file_insert():
     
     c.execute("insert into img_t values(?,?)" , (file_name,base))
     conn.commit()
+    c.execute("vacuum")
 
 #具現化
 def real(name,number):
-    row = c.execute("select * from img_t").fetchall()
+    c=conn.cursor()
+    row = c.execute("select img from img_t").fetchall()
     pic = row[number]
 
     f = open("{}".format(name),"wb")
@@ -30,8 +32,15 @@ def real(name,number):
     f.close()
     c.close()
 
+#real("hres.jpg",1)
+
 file_insert()
+#c.execute("select file_name from img_t")
+#print(c.fetchall())
 #file_insert()
-c.execute("select file_name from img_t")
-print(c.fetchall())
+
+
+
+conn.execute("vacuum")
+
 
