@@ -32,15 +32,22 @@ def real(name,number):
     f.close()
     c.close()
 
+
+#削除
+def delete(name):
+    c.execute("delete from img_t where file_name = '{}'".format(name))
+    conn.commit()
+    conn.execute("vacuum")
 #real("hres.jpg",1)
 
-file_insert()
+#file_insert()
 #c.execute("select file_name from img_t")
 #print(c.fetchall())
 #file_insert()
 
-
-
+#c.execute("delete from img_t where file_name = '42010ランナーバリ.jpg'")
+#conn.commit()
+#データベースの中身を更新した際に反映させる
 conn.execute("vacuum")
 
 
