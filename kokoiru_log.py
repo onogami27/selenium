@@ -5,7 +5,7 @@ import webbrowser
 from selenium.webdriver.chrome.options import Options
 
 #ここいるヘルパーを実行する
-x = subprocess.Popen(["start","", r"C:\Users\60837\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\DAIWA-KASEI\KokoiruHelper.appref-ms"],shell=True)
+x = subprocess.run(["start","", r"C:\Users\60837\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\DAIWA-KASEI\KokoiruHelper.appref-ms"],shell=True)
 
 
 
